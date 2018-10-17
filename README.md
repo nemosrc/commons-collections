@@ -1,1 +1,1 @@
-## Nemo's commons-collections library [![Build Status](https://travis-ci.org/nemosrc/commons-collections.svg?branch=master)](https://travis-ci.org/nemosrc/commons-collections)
+## Nemo's commons-collections library [![Build Status](https://travis-ci.org/nemosrc/commons-collections.svg?branch=master)](https://travis-ci.org/nemosrc/commons-collections) [![Coverage Status](https://coveralls.io/repos/github/nemosrc/commons-collections/badge.svg?branch=master)](https://coveralls.io/github/nemosrc/commons-collections?branch=master)
