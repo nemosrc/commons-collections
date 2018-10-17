@@ -1,9 +1,5 @@
 language: java
 sudo: true
-jdk:
-- openjdk8
-script :
-  -./gradlew build
 after_success:
 - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
 - chmod +x send.sh

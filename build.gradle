@@ -38,7 +38,7 @@ publishing {
             pom {
                 name = 'Nemo'
                 description = 'Nemo\'s library for collections'
-                url = 'http://www.example.com/library'
+                url = 'https://github.com/nemosrc/commons-collections'
                 licenses {
                     license {
                         name = 'MIT License'
