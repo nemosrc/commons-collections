@@ -55,7 +55,5 @@ public class LinkedNodeListTest
         list.clear();
         assertNull(second.next());
         assertNull(second.previous());
-
-        throw new NullPointerException(); // generate exception for test travis
     }
 }
