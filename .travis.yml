@@ -9,8 +9,8 @@ branches:
     - develop
 
 script:
-- chmod +x gradlew
-- gradlew clean build
+- chmod +x /.gradlew
+- /.gradlew clean build
 
 cache:
   directories:
