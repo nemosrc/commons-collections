@@ -8,9 +8,8 @@ branches:
     - master
     - develop
 
-script:
-- chmod +x /.gradlew
-- /.gradlew clean build
+before_install:
+- gradle wrapper
 
 cache:
   directories:
