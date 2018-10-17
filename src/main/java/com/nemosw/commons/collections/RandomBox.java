@@ -60,7 +60,7 @@ public class RandomBox<E>
         if (bandwidth < 0) // check overflow
             throw new IllegalStateException("overflowed bandwidth");
 
-        Item item = new Item(e, frequency);
+        Item<E> item = new Item<>(e, frequency);
         this.items.add(item);
         this.bandwidth = item.bandwidth = bandwidth;
     }
