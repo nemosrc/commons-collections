@@ -3,7 +3,7 @@ sudo: true
 jdk:
   - openjdk8
 after_success:
-- ./gradlew cobertura coveralls
+- ./gradlew jacocoTestReport coveralls
 - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
 - chmod +x send.sh
 - ./send.sh success $WEBHOOK_URL
