@@ -244,36 +244,36 @@ public class LinkedNodeList<E> extends AbstractSequentialList<E> implements List
         if (numNew == 0)
             return false;
 
-        NodeImpl<E> pred, succ;
+        NodeImpl<E> prev, succ;
         if (index == size)
         {
             succ = null;
-            pred = last;
+            prev = last;
         } else
         {
             succ = node(index);
-            pred = succ.prev;
+            prev = succ.prev;
         }
 
         for (Object o : a)
         {
             @SuppressWarnings("unchecked")
             E e = (E) o;
-            NodeImpl<E> newNode = new NodeImpl<>(this, pred, e, null);
-            if (pred == null)
+            NodeImpl<E> newNode = new NodeImpl<>(this, prev, e, null);
+            if (prev == null)
                 first = newNode;
             else
-                pred.next = newNode;
-            pred = newNode;
+                prev.next = newNode;
+            prev = newNode;
         }
 
         if (succ == null)
         {
-            last = pred;
+            last = prev;
         } else
         {
-            pred.next = succ;
-            succ.prev = pred;
+            prev.next = succ;
+            succ.prev = prev;
         }
 
         size += numNew;
