@@ -1,0 +1,64 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+group 'com.nemosw.commons'
+version '0.0.2'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+compileJava.options.encoding = 'UTF-8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allJava
+}
+
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc
+}
+
+publishing {
+    publications {
+        mavenCollection(MavenPublication) {
+            artifactId = 'commons-collections'
+            from components.java
+            artifact sourcesJar
+            artifact javadocJar
+            pom {
+                name = 'Nemo'
+                description = 'Nemo\'s library for collections'
+                url = 'http://www.example.com/library'
+                licenses {
+                    license {
+                        name = 'MIT License'
+                        url = 'http://www.opensource.org/licenses/mit-license.php'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'nemo'
+                        name = 'Nemo'
+                        email = 'nemosrc@gmail.com'
+                        url = 'https://github.com/nemosrc'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:git://github.com/nemosrc/commons-collections.git'
+                    developerConnection = 'scm:git:ssh://github.com/nemosrc/commons-collections.git'
+                    url = 'https://github.com/nemosrc/commons-collections'
+                }
+            }
+        }
+    }
+}
