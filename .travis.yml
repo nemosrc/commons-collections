@@ -2,11 +2,28 @@ language: java
 sudo: true
 jdk:
   - openjdk8
+
+branches:
+  only:
+    - master
+    - develop
+
+script: "./gradlew clean build"
+
+cache:
+  directories:
+  - '$HOME/.m2'
+  - '$HOME/.gradle'
+
+before_install:
+- chmod +x gradlew
+
 after_success:
-- ./gradlew jacocoTestReport coveralls
 - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
 - chmod +x send.sh
 - ./send.sh success $WEBHOOK_URL
+- ./gradlew jacocoTestReport coveralls
+
 after_failure:
 - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
 - chmod +x send.sh
