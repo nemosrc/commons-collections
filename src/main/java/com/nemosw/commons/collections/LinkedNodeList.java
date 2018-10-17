@@ -570,6 +570,16 @@ public class LinkedNodeList<E> extends AbstractSequentialList<E> implements List
     }
 
     @Override
+    public Node<E> addNode(int index, E e) {
+        checkPositionIndex(index);
+
+        if (index == size)
+            return linkLast(e);
+        else
+            return linkBefore(e, node(index));
+    }
+
+    @Override
     public Node<E> addFirstNode(E e)
     {
         return linkFirst(e);
