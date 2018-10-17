@@ -28,66 +28,29 @@ task javadocJar(type: Jar) {
     from javadoc
 }
 
-//publishing {
-//    publications {
-//        mavenCollection(MavenPublication) {
-//            artifactId = 'commons-collections'
-//            from components.java
-//            artifact sourcesJar
-//            artifact javadocJar
-//            pom {
-//                name = 'Nemo'
-//                description = 'Nemo\'s library for collections'
-//                url = 'https://github.com/nemosrc/commons-collections'
-//                licenses {
-//                    license {
-//                        name = 'MIT License'
-//                        url = 'http://www.opensource.org/licenses/mit-license.php'
-//                    }
-//                }
-//                developers {
-//                    developer {
-//                        id = 'nemo'
-//                        name = 'Nemo'
-//                        email = 'nemosrc@gmail.com'
-//                        url = 'https://github.com/nemosrc'
-//                    }
-//                }
-//                scm {
-//                    connection = 'scm:git:git://github.com/nemosrc/commons-collections.git'
-//                    developerConnection = 'scm:git:ssh://github.com/nemosrc/commons-collections.git'
-//                    url = 'https://github.com/nemosrc/commons-collections'
-//                }
-//            }
-//        }
-//    }
-//}
-
 publishing {
     publications {
-        mavenJava(MavenPublication) {
-            pom {
-                name = 'My Library'
-                description = 'A concise description of my library'
-                url = 'http://www.example.com/library'
-                licenses {
-                    license {
-                        name = 'The Apache License, Version 2.0'
-                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    }
-                }
-                developers {
-                    developer {
-                        id = 'johnd'
-                        name = 'John Doe'
-                        email = 'john.doe@example.com'
-                    }
-                }
-                scm {
-                    connection = 'scm:git:git://example.com/my-library.git'
-                    developerConnection = 'scm:git:ssh://example.com/my-library.git'
-                    url = 'http://example.com/my-library/'
-                }
+        mavenCollection(MavenPublication) {
+            artifactId = 'commons-collections'
+            from components.java
+            artifact sourcesJar
+            artifact javadocJar
+            pom.withXml {
+                asNode().appendNode('name', 'Nemo')
+                asNode().appendNode('description', 'Nemo\'s commons-collections library')
+                asNode().appendNode('url', 'https://github.com/nemosrc/commons-collections')
+                asNode().appendNode('licenses').appendNode('license').
+                        appendNode('name', 'MIT License').parent().
+                        appendNode('url', 'http://www.opensource.org/licenses/mit-license.php')
+                asNode().appendNode('developers').appendNode('developer').
+                        appendNode('id', 'nemo').parent().
+                        appendNode('name', 'Nemo').parent().
+                        appendNode('email', 'nemosrc@gmail.com').parent().
+                        appendNode('url', 'https://github.com/nemosrc')
+                asNode().appendNode('scm').
+                        appendNode('connection', 'scm:git:git://github.com/nemosrc/commons-collections.git').parent().
+                        appendNode('developerConnection', 'scm:git:ssh://github.com/nemosrc/commons-collections.git').parent().
+                        appendNode('url', 'https://github.com/nemosrc/commons-collections')
             }
         }
     }
