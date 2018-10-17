@@ -28,35 +28,65 @@ task javadocJar(type: Jar) {
     from javadoc
 }
 
+//publishing {
+//    publications {
+//        mavenCollection(MavenPublication) {
+//            artifactId = 'commons-collections'
+//            from components.java
+//            artifact sourcesJar
+//            artifact javadocJar
+//            pom {
+//                name = 'Nemo'
+//                description = 'Nemo\'s library for collections'
+//                url = 'https://github.com/nemosrc/commons-collections'
+//                licenses {
+//                    license {
+//                        name = 'MIT License'
+//                        url = 'http://www.opensource.org/licenses/mit-license.php'
+//                    }
+//                }
+//                developers {
+//                    developer {
+//                        id = 'nemo'
+//                        name = 'Nemo'
+//                        email = 'nemosrc@gmail.com'
+//                        url = 'https://github.com/nemosrc'
+//                    }
+//                }
+//                scm {
+//                    connection = 'scm:git:git://github.com/nemosrc/commons-collections.git'
+//                    developerConnection = 'scm:git:ssh://github.com/nemosrc/commons-collections.git'
+//                    url = 'https://github.com/nemosrc/commons-collections'
+//                }
+//            }
+//        }
+//    }
+//}
+
 publishing {
     publications {
-        mavenCollection(MavenPublication) {
-            artifactId = 'commons-collections'
-            from components.java
-            artifact sourcesJar
-            artifact javadocJar
+        mavenJava(MavenPublication) {
             pom {
-                name = 'Nemo'
-                description = 'Nemo\'s library for collections'
-                url = 'https://github.com/nemosrc/commons-collections'
+                name = 'My Library'
+                description = 'A concise description of my library'
+                url = 'http://www.example.com/library'
                 licenses {
                     license {
-                        name = 'MIT License'
-                        url = 'http://www.opensource.org/licenses/mit-license.php'
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
                     }
                 }
                 developers {
                     developer {
-                        id = 'nemo'
-                        name = 'Nemo'
-                        email = 'nemosrc@gmail.com'
-                        url = 'https://github.com/nemosrc'
+                        id = 'johnd'
+                        name = 'John Doe'
+                        email = 'john.doe@example.com'
                     }
                 }
                 scm {
-                    connection = 'scm:git:git://github.com/nemosrc/commons-collections.git'
-                    developerConnection = 'scm:git:ssh://github.com/nemosrc/commons-collections.git'
-                    url = 'https://github.com/nemosrc/commons-collections'
+                    connection = 'scm:git:git://example.com/my-library.git'
+                    developerConnection = 'scm:git:ssh://example.com/my-library.git'
+                    url = 'http://example.com/my-library/'
                 }
             }
         }
